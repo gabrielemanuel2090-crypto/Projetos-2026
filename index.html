@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumidor IA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <h1>Resumidor <span class="ia-text">IA</span></h1>
+                </div>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main -->
+        <main class="main-content">
+            <section class="hero">
+                <h2>Resuma com <span class="highlight"> IA</span></h2>
+                <p>Algoritmo inteligente rodando localmente no seu computador</p>
+            </section>
+
+            <!-- Input -->
+            <section class="input-section">
+                <div class="input-card">
+                    <div class="input-header">
+                        <i class="fas fa-edit"></i>
+                        <h3>Seu texto aqui</h3>
+                        <div class="word-count" id="wordCount">0 palavras</div>
+                    </div>
+                    <textarea id="inputText" rows="8" 
+                        placeholder="Cole seu texto longo aqui... A IA Python fará o resumo automaticamente! ✨"></textarea>
+                    <div class="input-actions">
+                        <button id="clearBtn" class="btn btn-secondary">
+                            <i class="fas fa-trash"></i> Limpar
+                        </button>
+                        <button id="summarizeBtn" class="btn btn-primary">
+                            <i class="fas fa-sparkles"></i>
+                            <span id="btnText">Resumir com IA</span>
+                            <div class="loading" id="loadingSpinner"></div>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Output -->
+            <section class="output-section" id="outputSection" style="display: none;">
+                <div class="output-card">
+                    <div class="output-header">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Resumo  IA</h3>
+                        <div class="stats">
+                            <span id="summaryWordCount">-</span>
+                            <span id="reductionPercent">-</span>
+                        </div>
+                    </div>
+                    <div class="summary-content" id="summaryContent">
+                        Seu resumo aparecerá aqui...
+                    </div>
+                    <div class="output-actions">
+                        <button id="copyBtn" class="btn btn-success">
+                            <i class="fas fa-copy"></i> Copiar
+                        </button>
+                        <button id="downloadBtn" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> TXT
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p><strong>IA Local</strong> | 100% Offline </p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
